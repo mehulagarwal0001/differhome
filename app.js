@@ -17,11 +17,10 @@ app.use('/images',express.static(path.join(__dirname,'public/images')));
 
 app.use(fileUpload());
 
-
+//For adding or getting projects
 app.use('/api',require('./routes/addProject'));
-
-
-
+app.use('/auth',require('./routes/auth'));
+app.use('/contact',require('./routes/contact'));
 
 
 app.listen(port,()=>{
