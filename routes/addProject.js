@@ -37,44 +37,53 @@ router.post('/addProject',async (req,res)=>{
     
  
 let project = req.body;
+// console.log(req.body);
+  
+if(req.files){
+if(  req.files.brochure && Array.isArray(req.files.brochure) == false ) req.files.brochure =[req.files.brochure];
+if(  req.files.photos && Array.isArray(req.files.photos) == false ) req.files.photos =[req.files.photos];
+if(  req.files.floorPlan &&  Array.isArray(req.files.floorPlan) == false ) req.files.floorPlan =[req.files.floorPlan];
+if( req.files.layout && Array.isArray(req.files.layout) == false ) req.files.layout =[req.files.layout];
 
-if( Array.isArray(req.files.brochure) == false ) req.files.brochure =[req.files.brochure];
-if( Array.isArray(req.files.photos) == false ) req.files.brochure =[req.files.photos];
-if( Array.isArray(req.files.floorPlan) == false ) req.files.brochure =[req.files.floorPlan];
-if( Array.isArray(req.files.layout) == false ) req.files.brochure =[req.files.layout];
-
-//console.log(req.files.photos);
-project.photos= await path_of_photos(req.files.photos);
+console.log(req.files.photos);
+    if(req.files.photos ){ project.photos= await path_of_photos(req.files.photos);
 
 if( await move_to_public(req.files.photos,project.photos) == false) {
    return  res.status(500).json({status:"failed"});
-}
+}}
 
+if(req.files.layout){
 project.layout= await path_of_photos(req.files.layout);
 
 if(await move_to_public(req.files.layout,project.layout) ==false ){
     return  res.status(500).json({status:"failed"});
-}
+}}
 
+if(req.files.floorPlan){
 project.floorPlan= await path_of_photos(req.files.floorPlan);
 
 if( await move_to_public(req.files.floorPlan,project.floorPlan) == false) {
    return  res.status(500).json({status:"failed"});
 }
+}
 
+if(req.files.brochure){
 project.brochure= await path_of_photos(req.files.brochure);
 
 if(await move_to_public(req.files.brochure,project.brochure) ==false ){
     return  res.status(500).json({status:"failed"});
 }
 
+}
 
+}
 //console.log(project);
 const saving_project= await new Project(project);
 const saved_project= await saving_project.save();
 
 return res.send(saved_project);
 
+// return res.send("HEllo");
 
 } catch (error) {
     return res.status(500).json({error:error});

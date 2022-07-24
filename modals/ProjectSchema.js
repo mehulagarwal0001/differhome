@@ -20,8 +20,11 @@ const ProjectSchema= new mongoose.Schema({
      furnished:Boolean,
      about:String,
      
+
+     
      photos: [{
-        type: String
+        type: String,
+   
     }],
     layout:[{
         type:String
