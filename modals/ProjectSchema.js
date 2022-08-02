@@ -8,7 +8,7 @@ const ProjectSchema= new mongoose.Schema({
      state:String,
      pincode:Number,
      address:String,
-     area:String,
+     area:Number,
      carpetArea:Number,
      price:Number,
      priceSqft:Number,
@@ -19,9 +19,6 @@ const ProjectSchema= new mongoose.Schema({
      status:String,
      furnished:String,
      about:String,
-     
-
-     
      photos: [{
         type: String,
    
