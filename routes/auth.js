@@ -9,6 +9,7 @@ router.post('/login',async (req,res)=>{
   
     try {
       const {email,password}=req.body;
+      console.log(email,password);
       const user= await User.findOne({email});
       if(!user)return res.status(400).json({success:false,error:"Wrong Credentials"});
       if(user.password!=password) return res.status(400).json({success:false,error:"Wrong Credentials"});

@@ -17,7 +17,7 @@ const ProjectSchema= new mongoose.Schema({
      reraRegistered:Boolean,
      age:Number,
      status:String,
-     furnished:Boolean,
+     furnished:String,
      about:String,
      
 
