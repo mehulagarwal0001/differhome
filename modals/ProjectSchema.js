@@ -17,6 +17,8 @@ const ProjectSchema= new mongoose.Schema({
      reraRegistered:Boolean,
      age:Number,
      status:String,
+     latitude:String,
+     longitude:String,
      furnished:String,
      about:String,
      photos: [{
