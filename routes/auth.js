@@ -2,11 +2,11 @@ const router= require('express').Router();
 const jwt = require('jsonwebtoken');
 const User= require('../modals/UserSchema');
 
-
+Conskid-at-469955463873      AKIAW224HJLA4APEZ564      K862YDzwCg8rO5r/cSxDiKt5xcB03X8Azhjdemfo
 //login 
 router.post('/login',async (req,res)=>{
   
-  
+    AKIAW224HJLAWS4JQZOH,bwOn/bOGBtbLiJVdd1S1VFkgvvY9gGR1x7lj31W/
     try {
       const {email,password}=req.body;
       console.log(email,password);
