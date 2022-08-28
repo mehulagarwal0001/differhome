@@ -32,7 +32,9 @@ return true;
 }
 
 // To add a new Project 
-router.post('/addProject',fetchUser, async (req,res)=>{
+router.post('/addProject',
+fetchUser,
+ async (req,res)=>{
 
   try {
     
