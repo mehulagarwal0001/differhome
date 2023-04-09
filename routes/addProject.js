@@ -125,5 +125,19 @@ router.get('/project/:id',async (req,res)=>{
 })
 
 
+router.delete('/deleteproject/:id',fetchUser, async (req,res)=>{
+    
+    try {
+        const delte= await Project.findByIdAndDelete(req.params.id);
+        //console.log(delte);
+       return  res.send("Deleted");
+     } catch (error) {
+         console.log(error.message);
+       return   res.status(500).send("Some error Occured");
+     }
+     })
+
+
+
 
 module.exports = router;
